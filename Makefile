@@ -30,7 +30,7 @@ LDLIBS +=	$(shell $(LLVM_CONFIG) --ldflags) \
 		-lLLVM-$(shell $(LLVM_CONFIG) --version)
 
 .PHONY: all
-all: regexp_test reddot redasm redgrep
+all: regexp_test reddot redasm redgrep redll
 
 CPPFLAGS +=	-Ithird_party/libutf/include
 LIBUTF =	third_party/libutf/runetype/isvalidrune.o \
@@ -57,6 +57,8 @@ reddot: reddot.o $(LIBUTF) parser.tab.o regexp.o
 redasm: redasm.o $(LIBUTF) parser.tab.o regexp.o
 
 redgrep: redgrep_main.o $(LIBUTF) parser.tab.o regexp.o redgrep.o
+
+redll: redll.o $(LIBUTF) parser.tab.o regexp.o
 
 .PHONY: clean
 clean:
