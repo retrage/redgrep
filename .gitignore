@@ -1,0 +1,8 @@
+*.o
+*.hh
+*.tab.*
+redasm
+reddot
+redgrep
+redll
+regexp_test
